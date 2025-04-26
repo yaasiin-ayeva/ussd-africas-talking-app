@@ -10,6 +10,25 @@ This application is an example of a USSD service using Africa's Talking, develop
 - Airtime purchase
 - Integration with [Africa's Talking API](https://africastalking.com/)
 
+## Flow Diagram
+
+1. **User Interaction**: The user dials the USSD code (*123#) on their mobile phone.
+2. **Mobile Network**: The request is routed through the mobile network operator.
+3. **Africa's Talking Gateway**: The mobile operator forwards the request to Africa's Talking's USSD gateway.
+4. **Your Application**: Africa's Talking sends an HTTP POST request to your application's callback URL.
+5. **Application Processing**: Your application processes the request and determines the appropriate response.
+6. **Response Chain**: The response travels back through the same path to the user's phone.
+7. **Session Management**: For menu-based interactions, the session is maintained until completion or timeout.
+
+The entire process typically completes within seconds, providing a responsive experience even on feature phones without internet connectivity.
+
+The diagram below illustrates the flow of data in the USSD application:
+
+<div align="center">
+  <img src="ussd-flow-diagram.svg" alt="USSD Flow Diagram" width="60%" />
+</div>
+
+
 ## Prerequisites
 
 - Node.js (v14 or higher)
@@ -79,22 +98,6 @@ Africa's Talking provides a USSD simulator in their console to test your applica
 1. Go to the USSD section of your Africa's Talking account
 2. Use the simulator with the service code you configured
 3. Interact with your application
-
-## Flow Diagram
-
-The diagram below illustrates the flow of data in the USSD application:
-
-<img src="ussd-flow-diagram.svg" alt="USSD Flow Diagram" width="80%" />
-
-1. **User Interaction**: The user dials the USSD code (*123#) on their mobile phone.
-2. **Mobile Network**: The request is routed through the mobile network operator.
-3. **Africa's Talking Gateway**: The mobile operator forwards the request to Africa's Talking's USSD gateway.
-4. **Your Application**: Africa's Talking sends an HTTP POST request to your application's callback URL.
-5. **Application Processing**: Your application processes the request and determines the appropriate response.
-6. **Response Chain**: The response travels back through the same path to the user's phone.
-7. **Session Management**: For menu-based interactions, the session is maintained until completion or timeout.
-
-The entire process typically completes within seconds, providing a responsive experience even on feature phones without internet connectivity.
 
 ## Possible Customization
 
